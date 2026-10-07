@@ -1,6 +1,7 @@
 package com.springAi.toolCalling.services;
 
 
+import com.springAi.toolCalling.tools.SimpleDateTimeTool;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ public class ChatService {
 
         return chatClient
                 .prompt()
+                .tools(new SimpleDateTimeTool())
                 .user(q)
                 .call()
                 .content();

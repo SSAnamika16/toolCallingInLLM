@@ -19,16 +19,6 @@ public class AiConfig {
     public ChatClient chatClient(ChatClient.Builder builder) {
 
         return builder
-                .defaultSystem("You are a helpful coding assistant. You are an expert in coding.")
-                .defaultOptions(
-                        OllamaChatOptions.builder()
-                                .model("codellama:latest")
-                                .temperature(0.7)
-                                .maxTokens(100)
-                )
-                .build();
+                .defaultAdvisors(new SimpleLoggerAdvisor()).build();
     }
-
-
-
 }
